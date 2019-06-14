@@ -1,0 +1,114 @@
+option value is :  Default Other Value sack.vfs.option.node { value: 'Default Other Value' } [ 'value' ] sack.vfs.option.node { eo: [Function: eo], fo: [Function: fo], go: [Function: go] }
+00:13:50.194|C6140000AEF4~Do Command[00634DB4:option.db]: pragma foreign_keys=on
+Initial.. no defaults... Set Value
+option value is :  Default Other Value sack.vfs.option.node { value: 'Default Other Value' } [ 'value' ]
+after setting value.. Set Value
+after setting value.. Set Value
+ test = undefined
+    a = undefined
+       b3 = undefined
+          c2 = Set Value
+       b = undefined
+          c = Default Other Value
+global option database ---------------
+ DEFAULT = undefined
+    SACK = undefined
+       Deadstart = undefined
+          Logging Enabled? = 0
+    node = undefined
+       file group = undefined
+          Images = @/images
+       SACK = undefined
+          Summoner = undefined
+             Auto register with summoner? = 0
+          Config Script = undefined
+             Log configuration line input = 0
+             Log configuration processing(trace) = 0
+             Log Unhandled if no application handler = 0
+             Disable Memory Logging = 1
+          Network = undefined
+             Connect timeout = 10000
+             Read wait timeout = 5000
+             Log Network Sent Data = 0
+             Log Network Received Data = 0
+             Log Network Received Data(64 byte max) = 0
+             Log Protocols = 0
+          HTTP = undefined
+             Enable Logging Received Data = 0
+          type library = undefined
+             sets = undefined
+                Enable Logging = 0
+          Memory Library = undefined
+             Disable Debug = 1
+             Enable Logging Holds = 0
+             Enable Logging = 0
+             Log critical sections = 0
+          Timers = undefined
+             Log Timer Dispatch = 0
+             Log Sleeps = 0
+             Log Thread Create = 0
+          system = undefined
+             Auto prepend program location to PATH environment = 0
+             Enable Logging = 0
+          SQL = undefined
+             Options = undefined
+                Options Use System Name Default = 0
+                Options Use Program Name Default = 1
+          Logging = undefined
+             Log Date = 0
+             Log Time = 1
+             Log Time as Delta = 0
+             Log CPU Tick Time and Delta = 0
+             Log Program = 0
+             Log Thread ID = 1
+             Default Log Level (1001:all, 100:least) = 2000
+             Send Log to UDP = 0
+             Default Log Location is common data directory = 1
+             Default Log Location is exectuable directory = 0
+             Default Log Location is current directory = 0
+             Enable File Log = 0
+             Enable System Log = 0
+             Log Source File = 1
+          Process Registry = undefined
+             Disable Memory Logging = 1
+          filesys = undefined
+             Log open and close = 0
+          VFS = undefined
+             Mount FS VFS = 0
+             Mount VFS = 0
+          PSI = undefined
+             menus = undefined
+                Use Custom Popups = 0
+       intershell = undefined
+          Auto Start = 0
+          change directory to resources = 0
+dump tables: 
+ [ { option_id: '00000000-0000-0000-0000-000000000000',
+    parent_option_id: '00000000-0000-0000-0000-000000000000',
+    name_id: 'fea97877-6719-11e9-875b-2e6fc90d301f',
+    description: null },
+  { option_id: 'fea97879-6719-11e9-875b-2e6fc90d301f',
+    parent_option_id: '00000000-0000-0000-0000-000000000000',
+    name_id: 'fea97878-6719-11e9-875b-2e6fc90d301f',
+    description: null },
+  { option_id: 'fea9787b-6719-11e9-875b-2e6fc90d301f',
+    parent_option_id: 'fea97879-6719-11e9-875b-2e6fc90d301f',
+    name_id: 'fea9787a-6719-11e9-875b-2e6fc90d301f',
+    description: null },
+  { option_id: 'fea9787d-6719-11e9-875b-2e6fc90d301f',
+    parent_option_id: 'fea9787b-6719-11e9-875b-2e6fc90d301f',
+    name_id: 'fea9787c-6719-11e9-875b-2e6fc90d301f',
+    description: null },
+  { option_id: 'fea9787f-6719-11e9-875b-2e6fc90d301f',
+    parent_option_id: 'fea9787d-6719-11e9-875b-2e6fc90d301f',
+    name_id: 'fea9787e-6719-11e9-875b-2e6fc90d301f',
+    description: null },
+  { option_id: 'fea97881-6719-11e9-875b-2e6fc90d301f',
+    parent_option_id: 'fea9787b-6719-11e9-875b-2e6fc90d301f',
+    name_id: 'fea97880-6719-11e9-875b-2e6fc90d301f',
+    description: null },
+  { option_id: 'fea97883-6719-11e9-875b-2e6fc90d301f',
+    parent_option_id: 'fea97881-6719-11e9-875b-2e6fc90d301f',
+    name_id: 'fea97882-6719-11e9-875b-2e6fc90d301f',
+    description: null } ]
+00:13:50.216|C6140000AEF4~Auto commit thread stalled.

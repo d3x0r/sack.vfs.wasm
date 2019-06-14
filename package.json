@@ -1,0 +1,33 @@
+{
+  "name": "sack.vfs.wasm",
+  "version": "1.0.0",
+  "description": "JS VFS Addon",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/d3x0r/sack.vfs.wasm"
+  },
+  "main": "index.js",
+  "private": false,
+  "preferGlobal": false,
+  "license": "LGPL",
+  "keywords": [
+    "sqlite",
+    "vfs",
+    "JSON",
+    "JSON6",
+    "filesystem",
+    "fs",
+    "files",
+    "crypto",
+    "hashed",
+    "encrypt",
+    "decrypt",
+    "configuration",
+    "options",
+    "database",
+    "sack"
+  ],
+  "scripts": {
+    "test": "node tests/vfsTest.js"
+  }
+}

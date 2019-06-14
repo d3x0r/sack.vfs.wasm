@@ -1,0 +1,266 @@
+Store: sack.ObjectStorage {
+  cached: Map {},
+  cachedContainer: Map {},
+  stored: WeakMap { <items unknown> },
+  decoding: [],
+  pending: [],
+  stringifier:
+   { defineClass: [Function: defineClass],
+     setDefaultObjectToJSOX: [Function: setDefaultObjectToJSOX],
+     isEncoding: [Function: isEncoding],
+     stringify: [Function: stringify],
+     setQuote: [Function: setQuote],
+     registerToJSOX: [Function: registerToJSOX],
+     ignoreNonEnumerable: [Getter/Setter] },
+  map: [Function] }
+(get)Read Key: { objectHash: 'org.example.domain.data.users',
+  sealant: null,
+  readKey: null,
+  then: [Function: then],
+  catch: [Function: catch] }
+Read does exist...
+(get)Read Key: { objectHash: 'org.example.domain.data',
+  sealant: 'yfxhmLx3j07h9w4N7iEtI_DywNSTAB4DvRvfmBPuXE8=',
+  then: [Function: then],
+  catch: [Function: catch] }
+Read does exist...
+Root is now: { key: null, unsigned: [], signed: [] }
+Put found object? undefined { hello: 'world',
+  root: { key: null, unsigned: [ [Circular] ], signed: [] } } undefined
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  21 is time 14
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 14 to 6816
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  20 is time 3
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 3 to 6784
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  19 is time 13
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 13 to 6752
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  18 is time 12
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 12 to 6720
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  17 is time 20
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 20 to 6688
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  16 is time 7
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 7 to 6656
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  15 is time 1
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 1 to 6624
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  14 is time 8
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 8 to 6592
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  13 is time 10
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 10 to 6560
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  12 is time 9
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 9 to 6528
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  11 is time 15
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 15 to 6496
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  10 is time 5
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 5 to 6464
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  9 is time 11
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 11 to 6432
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  8 is time 4
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 4 to 6400
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  7 is time 6
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 6 to 6368
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  6 is time 21
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 21 to 6336
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  5 is time 19
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 19 to 6304
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  4 is time 17
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 17 to 6272
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  3 is time 2
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 2 to 6240
+05:32:52.145|8E8C000082E8~sack.cc(18265):direntry at 0  2 is time 16
+05:32:52.145|8E8C000082E8~sack.cc(18269):Set timeline 16 to 6208
+05:32:52.146|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 21  0   0    22  0
+05:32:52.146|8E8C000082E8~sack.cc(17368):WR left/right depths: 22   0   0    0  0
+05:32:52.146|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 21      1  0
+05:32:52.146|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 20  0   1    21  19
+05:32:52.146|8E8C000082E8~sack.cc(17368):WR left/right depths: 21   0   1    22  0
+05:32:52.146|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 20      2  1
+05:32:52.146|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 18  1   2    20  17
+05:32:52.146|8E8C000082E8~sack.cc(17368):WR left/right depths: 20   1   2    21  19
+05:32:52.146|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 18      3  1
+05:32:52.146|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 16  1   3    18  12
+05:32:52.146|8E8C000082E8~sack.cc(17368):WR left/right depths: 18   1   3    20  17
+05:32:52.146|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 16      4  3
+05:32:52.146|8E8C000082E8~sack.cc(17457):WR Balanced, should redo this one... 17 19
+05:32:52.146|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 8  3   3    16  4
+05:32:52.146|8E8C000082E8~sack.cc(17368):WR left/right depths: 16   3   3    20  12
+05:32:52.146|8E8C000082E8~sack.cc(17556):Compare node 8  398761932121316 398762079269604
+05:32:52.146|8E8C000082E8~sack.cc(17556):Compare node 16  398761994081764 398762079269604
+05:32:52.146|8E8C000082E8~sack.cc(17556):Compare node 18  398761994091236 398762079269604
+05:32:52.146|8E8C000082E8~sack.cc(17556):Compare node 20  398762067308004 398762079269604
+05:32:52.146|8E8C000082E8~sack.cc(17556):Compare node 21  398762067308260 398762079269604
+05:32:52.146|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 21  0   0    22  0
+05:32:52.146|8E8C000082E8~sack.cc(17270):CR left/right depths: 22  0   0    0  0
+05:32:52.146|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 21      1  0
+05:32:52.146|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 20  0   1    21  19
+05:32:52.146|8E8C000082E8~sack.cc(17270):CR left/right depths: 21  0   1    22  0
+05:32:52.146|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 20      2  1
+05:32:52.146|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 18  1   2    20  17
+05:32:52.146|8E8C000082E8~sack.cc(17270):CR left/right depths: 20  1   2    21  19
+05:32:52.146|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 18      3  1
+05:32:52.146|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 16  1   3    18  12
+05:32:52.146|8E8C000082E8~sack.cc(17270):CR left/right depths: 18  1   3    20  17
+05:32:52.146|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 16      4  3
+05:32:52.146|8E8C000082E8~sack.cc(17352):CR Balanced, should redo this one... 17 19
+05:32:52.146|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 8  3   3    16  4
+05:32:52.146|8E8C000082E8~sack.cc(17270):CR left/right depths: 16  3   3    20  12
+05:32:52.146|8E8C000082E8~sack.cc(18299):Set timeline 22 to 6176
+05:32:52.146|8E8C000082E8~sack.cc(18303):direntry at 0  1 is time 22
+GOT storage ID: 3sC1gKCsxCzzZyYJqQxzAugCEsauGTIheS2szLO64eI=
+Put found object? undefined { hello: 'world',
+  root:
+   { key: null, unsigned: [ [Object] ], signed: [ [Circular] ] } } { stored: [Function: stored], failed: [Function: failed] }
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  22 is time 14
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 14 to 6848
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  21 is time 3
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 3 to 6816
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  20 is time 13
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 13 to 6784
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  19 is time 12
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 12 to 6752
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  18 is time 20
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 20 to 6720
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  17 is time 7
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 7 to 6688
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  16 is time 1
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 1 to 6656
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  15 is time 8
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 8 to 6624
+05:32:52.157|8E8C000082E8~sack.cc(16846):CR Found an existing entry that is a copy....
+05:32:52.157|8E8C000082E8~sack.cc(16856):WR Found an existing entry that is a copy....
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  14 is time 10
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 10 to 6592
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  13 is time 9
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 9 to 6560
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  12 is time 15
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 15 to 6528
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  11 is time 5
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 5 to 6496
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  10 is time 11
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 11 to 6464
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  9 is time 4
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 4 to 6432
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  8 is time 6
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 6 to 6400
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  7 is time 21
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 21 to 6368
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  6 is time 19
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 19 to 6336
+05:32:52.157|8E8C000082E8~sack.cc(18265):direntry at 0  5 is time 17
+05:32:52.157|8E8C000082E8~sack.cc(18269):Set timeline 17 to 6304
+05:32:52.157|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 22  0   0    23  0
+05:32:52.157|8E8C000082E8~sack.cc(17368):WR left/right depths: 23   0   0    0  0
+05:32:52.157|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 22      1  0
+05:32:52.157|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 21  0   1    22  0
+05:32:52.157|8E8C000082E8~sack.cc(17368):WR left/right depths: 22   0   1    23  0
+05:32:52.157|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 21      2  0
+05:32:52.157|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 20  0   2    21  18
+05:32:52.157|8E8C000082E8~sack.cc(17368):WR left/right depths: 21   0   2    22  0
+05:32:52.157|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 20      3  2
+05:32:52.157|8E8C000082E8~sack.cc(17457):WR Balanced, should redo this one... 0 0
+05:32:52.157|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 16  2   2    20  12
+05:32:52.157|8E8C000082E8~sack.cc(17368):WR left/right depths: 20   2   2    22  18
+05:32:52.157|8E8C000082E8~sack.cc(17556):Compare node 8  398761932121316 398762079272420
+05:32:52.157|8E8C000082E8~sack.cc(17556):Compare node 16  398761994081764 398762079272420
+05:32:52.157|8E8C000082E8~sack.cc(17556):Compare node 20  398762067308004 398762079272420
+05:32:52.157|8E8C000082E8~sack.cc(17556):Compare node 21  398762067308260 398762079272420
+05:32:52.157|8E8C000082E8~sack.cc(17556):Compare node 22  398762079269604 398762079272420
+05:32:52.159|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 22  0   0    23  0
+05:32:52.159|8E8C000082E8~sack.cc(17270):CR left/right depths: 23  0   0    0  0
+05:32:52.159|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 22      1  0
+05:32:52.159|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 21  0   1    22  0
+05:32:52.159|8E8C000082E8~sack.cc(17270):CR left/right depths: 22  0   1    23  0
+05:32:52.159|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 21      2  0
+05:32:52.159|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 20  0   2    21  18
+05:32:52.159|8E8C000082E8~sack.cc(17270):CR left/right depths: 21  0   2    22  0
+05:32:52.159|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 20      3  2
+05:32:52.159|8E8C000082E8~sack.cc(17352):CR Balanced, should redo this one... 0 0
+05:32:52.159|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 16  2   2    20  12
+05:32:52.159|8E8C000082E8~sack.cc(17270):CR left/right depths: 20  2   2    22  18
+05:32:52.159|8E8C000082E8~sack.cc(18299):Set timeline 23 to 6272
+05:32:52.159|8E8C000082E8~sack.cc(18303):direntry at 0  4 is time 23
+THIS SHOULD REWRITE ROOT: 
+{
+   key: null,
+   signed: [
+      {
+         hello: "world",
+         root: ref[]
+      }
+],
+   unsigned: [
+      {
+         hello: "world",
+         root: ref[]
+      }
+]
+}
+Put found object? undefined { key: null,
+  unsigned: [ { hello: 'world', root: [Circular] } ],
+  signed: [ { hello: 'world', root: [Circular] } ] } undefined
+05:32:52.159|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 23  0   0    24  0
+05:32:52.159|8E8C000082E8~sack.cc(17368):WR left/right depths: 24   0   0    0  0
+05:32:52.159|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 23      1  0
+05:32:52.159|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 22  0   1    23  21
+05:32:52.159|8E8C000082E8~sack.cc(17368):WR left/right depths: 23   0   1    24  0
+05:32:52.159|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 22      2  1
+05:32:52.159|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 20  1   2    22  18
+05:32:52.159|8E8C000082E8~sack.cc(17368):WR left/right depths: 22   1   2    23  21
+05:32:52.159|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 20      3  2
+05:32:52.159|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 16  2   3    20  12
+05:32:52.159|8E8C000082E8~sack.cc(17368):WR left/right depths: 20   2   3    22  18
+05:32:52.159|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 16      4  3
+05:32:52.159|8E8C000082E8~sack.cc(16846):CR Found an existing entry that is a copy....
+05:32:52.159|8E8C000082E8~sack.cc(17367):WR (P)left/right depths: 8  3   4    16  4
+05:32:52.159|8E8C000082E8~sack.cc(17368):WR left/right depths: 16   3   4    20  12
+05:32:52.159|8E8C000082E8~sack.cc(17424):WR updated left/right depths: 8      5  3
+05:32:52.159|8E8C000082E8~sack.cc(16846):CR Found an existing entry that is a copy....
+05:32:52.159|8E8C000082E8~sack.cc(16846):CR Found an existing entry that is a copy....
+05:32:52.159|8E8C000082E8~sack.cc(16846):CR Found an existing entry that is a copy....
+05:32:52.159|8E8C000082E8~sack.cc(17457):WR Balanced, should redo this one... 4 12
+05:32:52.159|8E8C000082E8~sack.cc(17556):Compare node 16  398761994081764 398762079272932
+05:32:52.159|8E8C000082E8~sack.cc(17556):Compare node 20  398762067308004 398762079272932
+05:32:52.159|8E8C000082E8~sack.cc(17556):Compare node 22  398762079269604 398762079272932
+05:32:52.159|8E8C000082E8~sack.cc(17556):Compare node 23  398762079272420 398762079272932
+05:32:52.159|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 23  0   0    24  0
+05:32:52.159|8E8C000082E8~sack.cc(17270):CR left/right depths: 24  0   0    0  0
+05:32:52.159|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 23      1  0
+05:32:52.159|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 22  0   1    23  21
+05:32:52.159|8E8C000082E8~sack.cc(17270):CR left/right depths: 23  0   1    24  0
+05:32:52.159|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 22      2  1
+05:32:52.159|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 20  1   2    22  18
+05:32:52.159|8E8C000082E8~sack.cc(17270):CR left/right depths: 22  1   2    23  21
+05:32:52.159|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 20      3  2
+05:32:52.159|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 16  2   3    20  12
+05:32:52.159|8E8C000082E8~sack.cc(17270):CR left/right depths: 20  2   3    22  18
+05:32:52.159|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 16      4  3
+05:32:52.159|8E8C000082E8~sack.cc(17269):CR (P)left/right depths: 8  3   4    16  4
+05:32:52.159|8E8C000082E8~sack.cc(17270):CR left/right depths: 16  3   4    20  12
+05:32:52.159|8E8C000082E8~sack.cc(17320):CR updated left/right depths: 8      5  3
+05:32:52.159|8E8C000082E8~sack.cc(17352):CR Balanced, should redo this one... 4 12
+05:32:52.159|8E8C000082E8~sack.cc(18299):Set timeline 24 to 6880
+05:32:52.159|8E8C000082E8~sack.cc(18303):direntry at 0  23 is time 24
+Root Key: null
+(node:36492) UnhandledPromiseRejectionWarning: ReferenceError: key is not defined
+    at M:\javascript\vfs\native\object-storage.js:184:12
+    at new Promise (<anonymous>)
+    at sack.ObjectStorage.get (M:\javascript\vfs\native\object-storage.js:181:10)
+    at Object.<anonymous> (M:\javascript\vfs\native\tests\objstore\testOs.js:20:7)
+    at Module._compile (internal/modules/cjs/loader.js:734:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:745:10)
+    at Module.load (internal/modules/cjs/loader.js:626:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:566:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:558:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:797:12)
+(node:36492) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:36492) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+(node:36492) UnhandledPromiseRejectionWarning: ReferenceError: key is not defined
+    at M:\javascript\vfs\native\object-storage.js:184:12
+    at new Promise (<anonymous>)
+    at sack.ObjectStorage.get (M:\javascript\vfs\native\object-storage.js:181:10)
+    at initRoot (M:\javascript\vfs\native\tests\objstore\testOs.js:103:8)
+    at vfs.readJSOX (M:\javascript\vfs\native\tests\objstore\testOs.js:149:4)
+    at Object.<anonymous> (M:\javascript\vfs\native\tests\objstore\testOs.js:146:6)
+    at Module._compile (internal/modules/cjs/loader.js:734:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:745:10)
+    at Module.load (internal/modules/cjs/loader.js:626:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:566:12)
+(node:36492) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 2)

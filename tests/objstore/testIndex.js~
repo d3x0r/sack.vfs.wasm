@@ -1,0 +1,45 @@
+
+var sack = require( "../.." );
+
+
+const orgRoot = "org.example.domain"
+const serviceRoot = "data";
+const appIdentifier = sack.idGenerator(4);
+
+
+//sack.Volume().unlink( "container.vfs" );
+
+var vfs = sack.Volume( "cmount", "container.vfs" );
+
+var store = sack.ObjectStorage( "cmount@storage.os" );
+
+var root = null;
+
+var config = vfs.read( "config.jsox" );
+if( config ) config = sack.JSOX.parse( config );
+
+if( !config ){
+	config = {
+        	appIdentifier : appIdentifer,
+                serviceRoot : serviceRoot,
+                orgRoot : orgRoot,
+        };
+	store.put( {}, {
+        	then( id ) {
+                	config.root = id;
+                        vfs.write( "config.jsox", sack.JSOX.stringify( config );
+                }
+        } );
+} else {
+	store.get( config.root, {
+       		then( obj ) {
+                	root = obj;
+                }
+       	} );
+}
+
+var userIndex = {
+	field : "firstName"
+};
+
+

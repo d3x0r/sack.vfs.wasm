@@ -1,0 +1,118 @@
+Something... 
+Read Key: Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=
+Read does exist...
+17:43:48.584|1137C00004A8C~objstore_module.cc(260):OPEN FILE:Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=
+Revive: ggolHF2N2JhIAROgIObAgbMnjyqUiBBoBBhFtAARYgA= { o: [], f: 0 } true [ 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=' ]
+17:43:48.587|1137C00004A8C~objstore_module.cc(260):OPEN FILE:ggolHF2N2JhIAROgIObAgbMnjyqUiBBoBBhFtAARYgA=
+Revive: Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA= { o: { hello: 'world' }, f: 'root' } true [ 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+  'ggolHF2N2JhIAROgIObAgbMnjyqUiBBoBBhFtAARYgA=' ]
+Push a pending resolution for: { id: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+  ref: { o: { hello: 'world' }, f: 'root' } }
+Revive: VPRaPIXjol51rxYWMRkuK_uoBNA0CWkpDFcq6VP$f$0= { o: [], f: 0 } true [ 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=' ]
+17:43:48.587|1137C00004A8C~objstore_module.cc(260):OPEN FILE:VPRaPIXjol51rxYWMRkuK_uoBNA0CWkpDFcq6VP$f$0=
+Revive: Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA= { o: { hello: 'world' }, f: 'root' } true [ 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+  'VPRaPIXjol51rxYWMRkuK_uoBNA0CWkpDFcq6VP$f$0=' ]
+Push a pending resolution for: { id: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+  ref: { o: { hello: 'world' }, f: 'root' } }
+GOTzz: objectStorageContainer {
+  data:
+   { data:
+      { key: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+        signed: [Array],
+        unsigned: [Array] },
+     nonce: null },
+  id: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=' }
+Root Key: Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=
+new root: 
+{
+   key: "Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=",
+   signed: [
+      {
+         hello: "world",
+         root: ref[]
+      }
+   ],
+   unsigned: [
+      {
+         hello: "world",
+         root: ref[]
+      }
+   ]
+}
+Root is now: { key: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+  signed: [ { hello: 'world', root: [Circular] } ],
+  unsigned: [ { hello: 'world', root: [Circular] } ] }
+Put found object? undefined { hello: 'world',
+  root:
+   { key: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+     signed: [ [Object] ],
+     unsigned: [ [Object], [Circular] ] } }
+THIS SHOULD ALREADY BE IN THE STORAGE! objectStorageContainer {
+  data: { nonce: null, data: { hello: 'world', root: [Object] } },
+  id: 'zshz1nrmJ3iQyXifsAgmdqcrRAbjVqqYw70fR$VOkEE=' } undefined
+17:43:48.591|1137C00004A8C~objstore_module.cc(212):OPEN FILE:zshz1nrmJ3iQyXifsAgmdqcrRAbjVqqYw70fR$VOkEE=
+GOT storage ID: zshz1nrmJ3iQyXifsAgmdqcrRAbjVqqYw70fR$VOkEE=
+Put found object? undefined { hello: 'world',
+  root:
+   { key: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+     signed: [ [Object], [Circular] ],
+     unsigned: [ [Object], [Object] ] } }
+THIS SHOULD ALREADY BE IN THE STORAGE! objectStorageContainer {
+  data:
+   { nonce:
+      { classifier: 1,
+        extent: 6,
+        key: 'BrKSLHXryblMMscAjEFdxuxvyb4cLtFR81CEBaNI1ps=' },
+     data: { hello: 'world', root: [Object] } },
+  id: 'bzb8d2Fl83_uvj69z$9Xc79t9vZa6sXT$6_pfTrfp4U=' } undefined
+17:43:49.131|1137C00004A8C~objstore_module.cc(212):OPEN FILE:bzb8d2Fl83_uvj69z$9Xc79t9vZa6sXT$6_pfTrfp4U=
+GOT storage ID: bzb8d2Fl83_uvj69z$9Xc79t9vZa6sXT$6_pfTrfp4U=
+THIS SHOULD REWRITE ROOT: 
+{
+   key: "Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=",
+   signed: [
+      {
+         hello: "world",
+         root: ref[]
+      },
+      {
+         hello: "world",
+         root: ref[]
+      }
+   ],
+   unsigned: [
+      {
+         hello: "world",
+         root: ref[]
+      },
+      {
+         hello: "world",
+         root: ref[]
+      }
+   ]
+}
+Put found object? Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA= { key: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+  signed:
+   [ { hello: 'world', root: [Circular] },
+     { hello: 'world', root: [Circular] } ],
+  unsigned:
+   [ { hello: 'world', root: [Circular] },
+     { hello: 'world', root: [Circular] } ] }
+Container: objectStorageContainer {
+  data:
+   { data:
+      { key: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+        signed: [Array],
+        unsigned: [Array] },
+     nonce: null },
+  id: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=' }
+THIS SHOULD ALREADY BE IN THE STORAGE! objectStorageContainer {
+  data:
+   { data:
+      { key: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=',
+        signed: [Array],
+        unsigned: [Array] },
+     nonce: null },
+  id: 'Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=' } Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=
+Update to: Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA= {data:{data:{key:"Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=",signed:[{hello:"world",root:ref["data","data"]},~os"bzb8d2Fl83_uvj69z$9Xc79t9vZa6sXT$6_pfTrfp4U="],unsigned:[{hello:"world",root:ref["data","data"]},~os"zshz1nrmJ3iQyXifsAgmdqcrRAbjVqqYw70fR$VOkEE="]},nonce:null},id:"Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA="}
+17:43:49.131|1137C00004A8C~objstore_module.cc(212):OPEN FILE:Q$Rs8jxhKL_ixzepmzlEArxFAT7UD1ZPaW7RM0QGtCA=

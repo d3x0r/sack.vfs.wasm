@@ -1,0 +1,17 @@
+var sack=require( "..' );
+
+var tbl = [];
+
+for( var n = 0; n < 256; n++ ) {
+	var t;
+        t = 0;
+	for( var b =0; b < 8; b++ )
+           if( n & ( 1 << b ) )
+             t++;
+        tbl.push(t);
+}
+
+
+var RNG = sack.SaltyRNG( );
+console.log( "?", RNG.getBits( 1 ) );
+
