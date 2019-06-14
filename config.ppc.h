@@ -16,3 +16,6 @@
 //#define TYPELIB_SOURCE
 //#define __NO_INTERFACE_SUPPORT__
 
+#include <stdio.h>
+#include <stdarg.h> 
+#include <stdhdrs.h>

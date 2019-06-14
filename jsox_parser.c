@@ -30,20 +30,14 @@ struct objectStates {
 
 void InitJSOX(void ) {
 	EM_ASM( (
-		Module.this_ = {
-			types : new Map(),
-			objects : [undefined,false,true,null,-Infinity,Infinity,NaN],
-			reset() {
-				this.objects.length = 7;
-			}
-		};
+
 		Module.arrayTypeFunc = [
 			Uint8Array, Uint8ClampedArray, Int8Array,
 			Uint16Array, Int16Array,
 			Uint32Array, Int32Array,
 			null, null,
 			Float32Array, Float64Array,
-									  ];
+		];
 
 
 		// static buffer state; removing this reallocation saved 10%

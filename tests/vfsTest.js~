@@ -12,7 +12,8 @@ try {
     vol = vfs.Volume( "mount-name", "./data.vfs" );
 } catch( err ) { console.log( err ) } ;
 if( vol ) {
-	var volDb = vol.Sqlite( "option-internal.db" );
+  var volDb = vol.Sqlite( "option-internal.db" );
+  console.log( "Got back object:", volDb, Object.keys( volDb ) );
 	var rows = volDb.do( "select * from sqlite_master" );
 	console.log( "read db in vfs?" );
 
@@ -63,6 +64,7 @@ file = null;
 //setTimeout( ()=>{ file2 = null; global.gc(); console.log( "ticked" );}, 500 );
 //setTimeout( ()=>{ global.gc();  console.log( "ticked" );}, 1000 );
 //setTimeout( ()=>{ global.gc();  console.log( "ticked" );}, 1500 );
+});
 
  }
 
@@ -71,4 +73,3 @@ file = null;
 //setTimeout( ()=>{console.log( "was that long enough?")}, 20000 );
  test();
  
-});

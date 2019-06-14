@@ -12,7 +12,8 @@ try {
     vol = vfs.Volume( "mount-name", "./data.vfs" );
 } catch( err ) { console.log( err ) } ;
 if( vol ) {
-	var volDb = vol.Sqlite( "option-internal.db" );
+  var volDb = vol.Sqlite( "option-internal.db" );
+  //console.log( "Got back object:", volDb, Object.keys( volDb ) );
 	var rows = volDb.do( "select * from sqlite_master" );
 	console.log( "read db in vfs?" );
 

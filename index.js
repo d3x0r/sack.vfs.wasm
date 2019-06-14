@@ -6,40 +6,44 @@ if( typeof global !== "undefined" )
 	global.Require = Require;
 
 
-var sack;
+var sackVfsModule;
 try{
-    sack = require( "./sack.vfs.wasm.js" );
-    console.log( "Got:", sack )
+    sackVfsModule = require( "./sack.vfs.wasm.dbg.js" );
+    //console.log( "Got:", sackVfsModule )
 } catch(err1) {
-    console.log( err1 );
+    try {
+        console.log( err1 );
+        sackVfsModule = require( "./sack.vfs.wasm.js" );
+        //console.log( "Got:", sackVfsModule );
+    } catch(err2) {
+        console.log( err2 );
+    }
 }
 
 
 function Require( path, cb ) {
 	
-	var module = require( path );
-	if( module === sack ) {
+	var module;
+        if( typeof path === "string" )
+	        module = require( path );
+        else
+	        module = path;
+	if( module === sackVfsModule ) {
 		module.onRuntimeInitialized = ()=>{
 			module._initFS();
 			const sack = module.SACK;
-		
-			if( window )
+			if( typeof window !== "undefined" )
 				window.SACK = sack;
-			//JSOXwasm._initJSOX();
-			cb( module );
-			//console.log( "Did I get a module?", sack );
-			//var v = sack.Volume();
-			//var v = sack.Volume( "mount", "./file.dat" );
-			//var f = v.File( "./Test.dat" );
-			//f.close();
+			setImmediate( ()=>cb( sack ) );
 		}
 	}else{
-		cb( module );
+		console.log( "Other Require (???)", path, cb );
+		setImmediate( ()=>cb( module ) );
 	}
 }
 
 function Loader(cb) {
-	Require( "./sack.vfs.wasm.js", cb );
+	Require( sackVfsModule, cb );
 }
 
 module.exports=exports=Loader;

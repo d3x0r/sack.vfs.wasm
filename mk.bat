@@ -84,7 +84,7 @@
 @set SRCS= %SRCS%   ../../src/SQLlib/optlib/getoption_v4.c
 @set SRCS= %SRCS%   ../../src/SQLlib/optlib/optionutil.c
 @set SRCS= %SRCS%   ../../src/SQLlib/optlib/optionutil_v4.c
-: @set SRCS= %SRCS%   ../../src/translationlib/translate.c
+@set SRCS= %SRCS%   ../../src/translationlib/translate.c
 
 @set SRCS= %SRCS%   ../../src/deadstart/deadstart_core.c 
  
