@@ -9,7 +9,7 @@
 void initFS( void )  EMSCRIPTEN_KEEPALIVE;
 void initFS( void ) 
 {
-	printf( "INVOKE DEADSTART\n" );
+	//printf( "INVOKE DEADSTART\n" );
 	InvokeDeadstart();
 	InitCommon();
 	EM_ASM( (
@@ -91,7 +91,19 @@ void initFS( void )
 			File(filename) {
 				return new File( this.vol, filename );
 			},
-			dir(){
+			dir(path,mask){
+				var pi;
+				var mi;
+				if( path ){
+					pi = allocate(intArrayFromString(path), 'i8', ALLOC_NORMAL);
+				}else pi = 0;
+				if( mask ){
+					mi = allocate(intArrayFromString(mask), 'i8', ALLOC_NORMAL);
+				}else mi = 0;
+				var v;
+				var r = Module.this_.objects[ v= Module._getDirectory( this.vol, pi, mi )];
+				Module.this_.objects[v] = null;
+				return r;
 			},
 			exists(fileOrPathName){
 			},
@@ -107,7 +119,6 @@ void initFS( void )
 			},
 			Sqlite: function(db){
 				if( ( this instanceof Volume ) ){
-					console.log( "FIrst pass, function call, maybe fix name:", this.mountName );
 					if( this.mountName ) {
 						db = "$sack@"+this.mountName+"$"+db;
 					}
@@ -116,7 +127,6 @@ void initFS( void )
 					console.log( "Retriggering as New(to get aswsociated methods )" ); 
 					return new Module.SACK.Volume.prototype.Sqlite(db);
 				}
-				console.log( "open DB:", db );
 				var si = db?allocate(intArrayFromString(db), 'i8', ALLOC_NORMAL):0;
 				this.sql = Module._createSqlObject( si );
 				Module._free( si );
@@ -137,8 +147,6 @@ void initFS( void )
 		volumeMethods.rename = volumeMethods.mv;
 	  Module.volMethods = volumeMethods;
 		Object.defineProperties( Volume.prototype, Object.getOwnPropertyDescriptors( volumeMethods ));
-		console.log( "AFTER THING:", Volume.prototype.Sqlite.prototype );
-		console.log( "AFTER THING:", volumeMethods.Sqlite.prototype );
 		//-------------------------------------------------------------------
 
 
@@ -283,7 +291,7 @@ uintptr_t Volume( char *mount, char *filename, int version, char *key1, char *ke
 		vol->vol = sack_vfs_fs_load_crypt_volume( filename, version, key1, key2 );
 		//lprintf( "VOL: %p for %s %d %p %p", vol, filename, version, key1, key2 );
 		if( vol->vol ) {
-      lprintf( "Sucess with volume, mount it as %s", mount);
+			//lprintf( "Sucess with volume, mount it as %s", mount);
 			vol->fsMount = sack_mount_filesystem( mount, vol->fsInt = sack_get_filesystem_interface( SACK_VFS_FILESYSTEM_NAME "-fs" )
 					, 2000, (uintptr_t)vol->vol, TRUE );
 		} else
@@ -391,4 +399,41 @@ uintptr_t openVolDb( struct os_Vol *vol, char *filename ) {
 			return o;
 }
 
+
+
+int getDirectory( struct os_Vol *vol, char const*path, char const *mask ) EMSCRIPTEN_KEEPALIVE;
+int getDirectory( struct os_Vol *vol, char const*path, char const *mask ) {
+	struct find_cursor *fi;
+	if( path )
+		if( mask ) 
+			fi = vol->fsInt->find_create_cursor( (uintptr_t)vol->vol, path, mask );
+		else
+			fi = vol->fsInt->find_create_cursor( (uintptr_t)vol->vol, path, "*" );
+	else
+		fi = vol->fsInt->find_create_cursor( (uintptr_t)vol->vol, ".", "*" );
+
+	int pool = getLocal();
+	int result = makeLocalArray(pool);
+	int markObjects;
+	int found;
+	int n = 0;
+	for( found = vol->fsInt->find_first( fi ); found; found = vol->fsInt->find_next( fi ) ) {
+		char *name = vol->fsInt->find_get_name( fi );
+		size_t length = vol->fsInt->find_get_size( fi );
+		int entry = makeLocalObject(pool);
+		//lprintf( "Get DirectoryEntry:%s", name );
+
+		LSET( pool, entry, "name", makeLocalString( pool, name, strlen(name ) ) );
+		if( length == ((size_t)-1) )
+			LSETG( pool, entry, "folder", JS_VALUE_TRUE );
+		else {
+			LSETG( pool, entry, "folder", JS_VALUE_FALSE );
+			LSET( pool, entry, "length", makeLocalNumber( pool, length ) );
+		}
+		LSETN( pool, result, n++, entry );
+	} 
+	vol->fsInt->find_close( fi );
+	dropLocalAndSave( pool, result );
+	return pool;
+}
 

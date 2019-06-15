@@ -1,5 +1,5 @@
 
-var vfs = require( '..' )
+require( '..' )((vfs)=>{
 
 var db = vfs.Sqlite( 'option.db' );
 var root = db.go( "test" );
@@ -42,3 +42,4 @@ function tick() {
                 );
 }
 tick();
+} )

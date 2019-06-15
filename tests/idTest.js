@@ -1,5 +1,5 @@
 
-var vfs = require( ".." );
+require( ".." )( (vfs)=>{
 
 var ids = [];
 for( var n = 0; n < 10; n++ )
@@ -64,3 +64,6 @@ packets.forEach( p=>{
 	}
 	console.log( `encoded length ${p.length} = ${n}(${n/runlength}/ms) in ${runlength/1000} seconds (${n*p.length/runlength} chars/ms)` );
 } );
+
+
+});

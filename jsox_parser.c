@@ -56,7 +56,7 @@ void InitJSOX(void ) {
 				write(data){
 					var s;
 					var i = allocate(s = intArrayFromString(str), 'i8', ALLOC_NORMAL);
-					Module._jsox_write( i, s.length );
+					Module._jsox_write( i, s.length-1 );
 					//console.log( "Got strg:", str, cb, s );
 				},
 				registerFromJSOX(typeName,fromCb) {

@@ -76,13 +76,17 @@ int makeLocalNumber( int pool, int n );
 int makeLocalNumberf( int pool, double n );
 int makeLocalTypedArray(int pool, int ab, int type );
 
-void setLocalObject( int pool, int object, int field, int value );
-void setLocalObjectByIndex( int pool, int object, int index, int value );
+void setLocalObject( int pool, int object, int field, int fromPool, int value );
+void setLocalObjectByIndex( int pool, int object, int index, int fromPool, int value );
 void setLocalObjectNumberByIndex( int pool, int object, int index, int value );
 void setLocalObjectNumberfByIndex( int pool, int object, int index, double value );
-void setLocalObjectByName( int pool, int object, char const*field, int value );
+void setLocalObjectByName( int pool, int object, char const*field, int fromPool, int value );
 
-#define LSET(p,o,f,v) setLocalObjectByName( p,o,f,v )
-#define LSETN(p,o,f,v) setLocalObjectByIndex( p,o,f,v )
+#define LSETG(p,o,f,v) setLocalObjectByName( p,o,f,-1,v )
+#define LSET(p,o,f,v) setLocalObjectByName( p,o,f,p,v )
+#define LSETN(p,o,f,v) setLocalObjectByIndex( p,o,f,p,v )
 
 
+int getLocal( void );
+void dropLocal( int pool );
+void dropLocalAndSave( int pool, int object );

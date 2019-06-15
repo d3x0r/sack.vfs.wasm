@@ -11,7 +11,7 @@ void InitCommon( void )
             consts : [], // strings referenced by C code that are const reference... 
             objects : [undefined,false,true,null,-Infinity,Infinity,NaN],
             freeObjects : [],
-			types : new Map(),
+			types : new Map(), // used by jsox
 			reset() { this.objects.length = 7 },
         };
 
@@ -206,6 +206,13 @@ void dropLocal( int pool ) {
     EM_ASM( { Module.this_.objects[$0] = null; Module.this_.freeObjects.push( $0 ) }, pool );
 }
 
+void dropLocalAndSave( int pool, int object ) {
+    EM_ASM( { 
+		Module.this_.objects[$0] = Module.this_.objects[$0][$1];
+		Module.this_.freeObjects.push( $0 ) 
+	}, pool, object );
+}
+
 int makeLocalString( int pool, char const *string, int stringlen ) {
 	int x = EM_ASM_INT( {
 		const string = UTF8ToString( $1, $2 );
@@ -315,50 +322,55 @@ int makeLocalTypedArray( int pool, int ab, int type ) {
 }
 
 
-void setLocalObject( int pool, int object, int field, int value ) {
+void setLocalObject( int pool, int object, int field, int fromPool, int value ) {
 	EM_ASM_( {
 		const fieldName = Module.this_.objects[$0][$2];
-		Module.this_.objects[$0][$1][fieldName] = Module.this_.objects[$0][$3]; 
-		//console.log( "We Good?", Module.this_.objects[$0] )
-	}, pool, object, field, value);
+		if( $4 < 0 )
+			Module.this_.objects[$0][$1][fieldName] = Module.this_.objects[$3]; 
+		else
+			Module.this_.objects[$0][$1][fieldName] = Module.this_.objects[$4][$3]; 
+	}, pool, object, field, value, fromPool );
 }
 
-void setLocalObjectByIndex( int pool, int object, int index, int value ) {
+void setLocalObjectByIndex( int pool, int object, int index, int fromPool, int value ) {
 	EM_ASM_( {
-		Module.this_.objects[$0][$1][$2] = Module.this_.objects[$0][$3]; 
-	}, pool, object, index, value);
+		if( $4 < 0 )
+			Module.this_.objects[$0][$1][$2] = Module.this_.objects[$3]; 
+		else
+			Module.this_.objects[$0][$1][$2] = Module.this_.objects[$4][$3]; 
+		//console.log( "Local Array is now:", Module.this_.objects[$0][$1] )
+	}, pool, object, index, value, fromPool );
 }
 
 
 void setLocalObjectNumberByIndex( int pool, int object,int field, int value ) {
 	EM_ASM_( {
 		Module.this_.objects[$0][$1][$2] = $3; 
-		//console.log( "We Good?", Module.this_.objects[$0] )
 	}, pool, object, field, value);
 }
 
 void setLocalObjectNumberfByIndex( int pool, int object,int field, double value ) {
 	EM_ASM_( {
-		const fieldName = UTF8ToString( $2 );
-		Module.this_.objects[$0][$1][fieldName] = $3; 
-		//console.log( "We Good?", Module.this_.objects[$0] )
+		Module.this_.objects[$0][$1][$2] = $3; 
 	}, pool, object, field, value);
 }
 
 
-void setLocalObjectByName( int pool, int object, char const*field, int value ) {
+void setLocalObjectByName( int pool, int object, char const*field, int fromPool, int value ) {
 	EM_ASM_( {
 		const fieldName = UTF8ToString( $2 );
-		Module.this_.objects[$0][$1][fieldName] = Module.this_.objects[$0][$3]; 
+		if( $4 < 0 )
+			Module.this_.objects[$0][$1][fieldName] = Module.this_.objects[$3]; 
+		else
+			Module.this_.objects[$0][$1][fieldName] = Module.this_.objects[$4][$3]; 
 		//console.log( "We Good?", Module.this_.objects[$0] )
-	}, pool, object, field, value);
+	}, pool, object, field, value, fromPool );
 }
 
 void setLocalObjectNumberByName( int pool, int object, char const*field, int value ) {
 	EM_ASM_( {
 		const fieldName = UTF8ToString( $2 );
 		Module.this_.objects[$0][$1][fieldName] = $3; 
-		//console.log( "We Good?", Module.this_.objects[$0] )
 	}, pool, object, field, value);
 }
 
@@ -366,7 +378,6 @@ void setLocalObjectNumberfByName( int pool, int object, char const*field, double
 	EM_ASM_( {
 		const fieldName = UTF8ToString( $2 );
 		Module.this_.objects[$0][$1][fieldName] = $3; 
-		//console.log( "We Good?", Module.this_.objects[$0] )
 	}, pool, object, field, value);
 }
 
