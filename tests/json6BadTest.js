@@ -1,5 +1,5 @@
 
-var vfs = require( ".." )
+require( ".." )((vfs)=>{
 
 
 var parse = vfs.JSON6.parse;
@@ -42,3 +42,6 @@ try {
 	o = parse( "{ a  : 'no quote' [1] }" );
 	console.log( "got back:", o );
 } catch( err ) { console.log( "Expected error, array after string?", err ); }
+
+
+})

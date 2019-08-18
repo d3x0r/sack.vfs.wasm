@@ -26,8 +26,14 @@ struct SqlObject* createSqlObject( const char *dsn );
 // --------- SRG Module
 void InitSRG( void );
 
+// -------- JSON6 Module
+void InitJSON6( void );
+
 // -------- JSOX Module
 void InitJSOX( void );
+
+// -------- TLS Utilities
+void TLSInit(void);
 
 // -------------  Common Utilities
 

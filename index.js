@@ -1,6 +1,6 @@
 "use strict";
-
-const isNode = ( typeof Global !== "undefined" )
+Error.stackTraceLimit = Infinity;
+const isNode = ( typeof process !== "undefined" )
 
 if( typeof window !== "undefined" ) 
 	window.Require = Require;
@@ -52,7 +52,11 @@ function Require( path, cb ) {
 					console.log( "Reaload complete:", err );
 				} )
 			}
-			module._initFS();
+			try {
+				module._initFS();
+			} catch(err) {
+				console.log( "Init has failed", err );
+			}
 			const sack = module.SACK;
 			if( typeof window !== "undefined" )
 				window.SACK = sack;

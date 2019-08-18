@@ -12,13 +12,14 @@ set EXPORTS='_initFS'
 
 
 @set CFLAGS=
-@set CFLAGS=%CFLAGS% -Wno-address-of-packed-member -Wno-parentheses -Wno-comment -Wno-null-dereference
+@set DBG_CFLAGS=
+@set CFLAGS=%CFLAGS% -Wno-address-of-packed-member -Wno-parentheses -Wno-comment -Wno-null-dereference -Wno-invalid-pp-token
 @set CFLAGS=%CFLAGS% -D__LINUX__ 
 @set CFLAGS=%CFLAGS% -DFORCE_COLOR_MACROS
 @set CFLAGS=%CFLAGS% -s WASM=1
 
 
-@set CFLAGS=%CFLAGS% -D_DEBUG
+@set DBG_CFLAGS=%DBG_CFLAGS% -D_DEBUG
 @set CFLAGS=%CFLAGS% -DDEFAULT_OUTPUT_STDOUT
 @set CFLAGS=%CFLAGS% -DSQLITE_ENABLE_COLUMN_METADATA
 
@@ -47,6 +48,7 @@ set EXPORTS='_initFS'
 @set SRCS=%SRCS% objStore.c
 @set SRCS=%SRCS% sql_module.c
 @set SRCS=%SRCS% srg_module.c
+@set SRCS=%SRCS% json6_parser.c
 @set SRCS=%SRCS% jsox_parser.c
 
 @set LIBS=-lcrypto -lssl -ltls
@@ -56,7 +58,7 @@ set EXPORTS='_initFS'
 
 :-s RESERVED_FUNCTION_POINTERS=20
 
-call emcc  -g -o ./sack.vfs.wasm.dbg.js %CFLAGS% %SRCS% --post-js exportTail.js
+call emcc  -g -o ./sack.vfs.wasm.dbg.js %DBG_CFLAGS% %CFLAGS% %SRCS% --post-js exportTail.js
 call emcc  -O3 -o ./sack.vfs.wasm.js %CFLAGS% %SRCS% --post-js exportTail.js
 
 :call emcc --memory-init-file 0 -o ./vfs-fs-w0.js   -Wno-address-of-packed-member -Wno-parentheses -Wno-comment -Wno-null-dereference -DUSE_STDIO=1 -DNO_SSL=1 -D__LINUX__ -s RESERVED_FUNCTION_POINTERS=20  vfs_fs.c

@@ -1,5 +1,5 @@
 
-var sack = require( ".." );
+require( ".." )((sack)=>{
 var JSON6 = sack.JSON6;
 
 
@@ -107,3 +107,5 @@ console.log( "result:", result );
 { my-key /*test * / :3}  // valid
 
 */
+
+})

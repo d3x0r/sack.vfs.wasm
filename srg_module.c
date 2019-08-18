@@ -33,11 +33,11 @@ struct SRGObject {
 
 static int vfs_u8xor(char const *xor1, size_t xorlen, char const *keystr, size_t keylen, int step, int key ) EMSCRIPTEN_KEEPALIVE;
 int vfs_u8xor( char const *xor1, size_t xorlen, char const *keystr, size_t keylen, int step, int key ){
-	char *out = u8xor( *xor1, (size_t)xorlen, keystr, keylen, &step );
-	lprintf( "-------- INPUT STRING:");
-	LogBinary( (uint8_t*)xor1, xorlen );
-	lprintf( "-------- OUTPUT STRING:");
-	LogBinary( (uint8_t*)out, xorlen );
+	char *out = u8xor( xor1, (size_t)xorlen, keystr, keylen, &step );
+	//lprintf( "-------- INPUT STRING: %d %d", xorlen, keylen );
+	//LogBinary( (uint8_t*)xor1, xorlen );
+	//lprintf( "-------- OUTPUT STRING:");
+	//LogBinary( (uint8_t*)out, xorlen );
 	SET( key, "step", step );
 	int result = makeString( out, xorlen );
 	Deallocate( char*, out );
@@ -858,10 +858,12 @@ void InitSRG( void ) {
 			var ki = allocate( ka = intArrayFromString(key.key), 'i8', ALLOC_NORMAL);
 			var step = key.step;;
 			var refKey = Module.this_.objects.push(key)-1;
-			console.log( "s: ", s, sa.length-1, " key : ", key, ka.length-1, step );
+			//console.log( "s: ", s, sa.length-1, " key : ", key, ka.length-1, step );
 			var res = Module._vfs_u8xor( si, sa.length-1, ki, ka.length-1, step, refKey );
 			res = Module.this_.objects[res];
-			console.log( "RESULT IWTH : ", res );
+			Module._free( si );
+			Module._free( ki );
+			//console.log( "RESULT IWTH : ", res );
 			// throw out all these references
 			Module.this_.objects.length = refKey;
 			return res;

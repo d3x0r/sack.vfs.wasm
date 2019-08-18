@@ -1,5 +1,5 @@
 
-const sack = require( ".." );
+require( ".." )((sack)=>{
 const JSON6 = sack.JSON6;
 
 var parser = JSON6.begin( (data)=>{
@@ -61,3 +61,5 @@ setTimeout( test2, 10 );
 console.log( "Waiting forever..." );
 function wait() { setTimeout( wait, 2000 ) }
 wait();
+
+})

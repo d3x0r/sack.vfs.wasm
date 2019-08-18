@@ -674,9 +674,9 @@ void InitSQL( void )
 		sqliteMethods.setOption = sqliteMethods.so;
 	        
 		Object.defineProperties( Sqlite.prototype, Object.getOwnPropertyDescriptors( sqliteMethods ));
-		console.log( "VOL:Module.SACK.Volume.prototype", Module.SACK.Volume.prototype );
-		console.log( "VOL:Module.SACK.Volume.prototype", Module.SACK.Volume.prototype.Sqlite.prototype );
-		console.log( "VOL:Module.SACK.Volume.prototype", Object.getPrototypeOf( Module.SACK.Volume.prototype.Sqlite ) );
+		//console.log( "VOL:Module.SACK.Volume.prototype", Module.SACK.Volume.prototype );
+		//console.log( "VOL:Module.SACK.Volume.prototype", Module.SACK.Volume.prototype.Sqlite.prototype );
+		//console.log( "VOL:Module.SACK.Volume.prototype", Object.getPrototypeOf( Module.SACK.Volume.prototype.Sqlite ) );
 		Object.defineProperties( Module.SACK.Volume.prototype.Sqlite.prototype, Object.getOwnPropertyDescriptors( sqliteMethods ));
 
 

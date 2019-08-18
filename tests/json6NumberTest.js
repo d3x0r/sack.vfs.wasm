@@ -1,5 +1,5 @@
 
-const sack = require( ".." );
+require( ".." )((sack)=>{
 const JSON = sack.JSON6;
 
 var start;
@@ -99,3 +99,4 @@ for( var m = 0; m < 20; m++ )
 console.log( "took:", Date.now() - start );
 
 
+})
