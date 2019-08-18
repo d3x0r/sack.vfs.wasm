@@ -1,9 +1,13 @@
 "use strict";
 
+const isNode = ( typeof Global !== "undefined" )
+
 if( typeof window !== "undefined" ) 
 	window.Require = Require;
-if( typeof global !== "undefined" )
+
+if( isNode ) {
 	global.Require = Require;
+}
 
 
 var sackVfsModule;
@@ -20,6 +24,9 @@ try{
     }
 }
 
+if( "undefined" === typeof setImmdediate )
+	var setImmediate = (cb)=>setTimeout(cb,0);
+
 
 function Require( path, cb ) {
 	
@@ -30,6 +37,21 @@ function Require( path, cb ) {
 	        module = path;
 	if( module === sackVfsModule ) {
 		module.onRuntimeInitialized = ()=>{
+			module.FS.chdir( "/home/web_user" );
+			if( isNode ) {
+				module.FS.mount( module.NODEFS, {
+						root:".",
+					
+					}
+					, "/home/web_user" );
+			}
+			else {
+				module.FS.mount( module.IDBFS, { }
+					, "/home/web_user" );
+				module.FS.syncfs( true /*load*/, (err)=>{
+					console.log( "Reaload complete:", err );
+				} )
+			}
 			module._initFS();
 			const sack = module.SACK;
 			if( typeof window !== "undefined" )
@@ -46,5 +68,9 @@ function Loader(cb) {
 	Require( sackVfsModule, cb );
 }
 
-module.exports=exports=Loader;
+
+if( typeof module !== "undefined" )  {
+	module.exports=exports=Loader;
+	
+}
 
