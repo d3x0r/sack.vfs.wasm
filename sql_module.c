@@ -144,32 +144,33 @@ void InitSQL( void )
 				var pdlParams = 0;
 				var si = 0;
 				var sa;
-				if( args.length ) {
+				if( args && args.length ) {
 					console.log( "HAS extra arguments... check what sort of format we got...");
-					var arg = 1;
+					var arg = 0;
 					var isFormatString;
 					var pvtStmt = '';
 					
 					if( s.includes( ":" )
 						|| s.includes( '@' )
 						|| s.includes( '$' ) ) {
-						if( typeof args[1] === "object" ) {
-							arg = 2;
+						if( typeof args[arg] === "object" ) {
+							console.log( "Objec with fancy names:", args[arg] );
 							pdlParams = Module._getValueList();
-							var params =  args[1] ;
+							var params =  args[arg] ;
 							var paramNames = Object.keys( params );
 							for( var p = 0; p < paramNames.length; p++ ) {
 								var valName = paramNames[p];
 								var value = params[valName];
 								var na;
 								var ni = valName?allocate(na=intArrayFromString(valName), 'i8', ALLOC_NORMAL):0;
+								console.log( "Argname:", valName );
 								switch( typeof value ) {
 								default:
 									throw new Error( "Unsupported value type:" + typeof value );
 								case "string":
 									var vala;
 									var vali = value?allocate(vala=intArrayFromString(value), 'i8', ALLOC_NORMAL):0;
-									Module._PushValue( pdlParams, ni, valName.length-1, Module.constants.JSOX_VALUE_NUMBER, 0, 0, 0, vala, vala.length-1 );
+									Module._PushValue( pdlParams, ni, valName.length-1, Module.constants.JSOX_VALUE_STRING, 0, 0, 0, vala, vala.length-1 );
 									break;
 								case "number":
 									if( value|0 === value )
@@ -211,21 +212,26 @@ void InitSQL( void )
 					if( !pdlParams )
 						pdlParams = Module._getValueList();
 					if( !isFormatString ) {
+                  pvtStmt = s;
 						for( ; arg < args.length; arg++ ) {
 							var value = args[arg];
+                     console.log( "just some aguments...", args, value );
 							switch( typeof value ) {
 							case  "string": {
 								//String::Utf8Value text( USE_ISOLATE(isolate) args[arg]->ToString( isolate->GetCurrentContext() ).ToLocalChecked() );
-								if( arg & 1 ) { // every odd parameter is inserted
+								if( !(arg & 1) ) { // every odd parameter is inserted
 									si = s?allocate(sa=intArrayFromString(s), 'i8', ALLOC_NORMAL):0;
+                           console.log( "putting in a question mark..." );
 									Module._PushValue( pdlParams, 0, 0, Module.constants.JSOX_VALUE_STRING, 0, 0, 0, args[arg], args[arg].length - 1 );
 									
 									pvtStmt += '?';
 								}
 								else {
+									//si = s?allocate(sa=intArrayFromString(s), 'i8', ALLOC_NORMAL):0;
+                           console.log( "Including statemtn?", value );
 									pvtStmt += value;
-									continue;
 								}
+								continue;
 							}
 							break;
 							case "object":							
@@ -282,6 +288,7 @@ void InitSQL( void )
 					}
 					else {
 						statement = s;
+                  if( args )
 						for( ; arg < args.length; arg++ ) {
 							var value = args[arg];
 							switch( typeof value ) {
@@ -290,7 +297,7 @@ void InitSQL( void )
 							case "string":
 								var vala;
 								var vali = value?allocate(na=intArrayFromString(value), 'i8', ALLOC_NORMAL):0;
-								Module._PushValue( pdlParams, 0, 0, Module.constants.JSOX_VALUE_NUMBER, 0, 0, 0, vala, vala.length - 1 );
+								Module._PushValue( pdlParams, 0, 0, Module.constants.JSOX_VALUE_NUMBER, 0, 0, 0, vala, value.length );
 								break;
 							case "number":
 								if( value|0 === value )
