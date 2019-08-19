@@ -1,5 +1,5 @@
 
-require( ".." )( (vfs)=>{
+require( ".." ).then( (vfs)=>{
 
 var ids = [];
 for( var n = 0; n < 10; n++ )

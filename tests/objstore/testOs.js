@@ -7,7 +7,7 @@ const appIdentifier = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
 
 
 
-var sack = require( "../.." );
+ require( "../.." ).then( sack=>{
 //sack.Volume().unlink( "container.vfs" );
 
 var vfs = sack.Volume( "cmount", "container.vfs" );
@@ -197,3 +197,5 @@ var userdb = {
 	users : null //userIndex
 };
 
+
+} );

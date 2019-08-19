@@ -1,5 +1,6 @@
 
-const sack = require( ".." );
+require( ".." ).then( (sack)=>{
+
 const sqlite = sack.Sqlite( "test.db" );
 
 if( sqlite.makeTable( "create table users ( name char, password char, deleted integer ) " ) )
@@ -18,3 +19,5 @@ if( sqlite.makeTable( "create table users ( name char, password char, deleted in
     sqlite.do( "select * from users where name=$user and password=$pass", { $user:"userName", $pass: passHash } );
     
     sqlite.do( "select * from users where name=$user and password=$pass and deleted=?", { $user:"userName", $pass: passHash }, true );
+
+} );
