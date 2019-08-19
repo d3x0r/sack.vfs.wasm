@@ -145,7 +145,6 @@ void InitSQL( void )
 				var si = 0;
 				var sa;
 				if( args && args.length ) {
-					console.log( "HAS extra arguments... check what sort of format we got...");
 					var arg = 0;
 					var isFormatString;
 					var pvtStmt = '';
@@ -154,7 +153,7 @@ void InitSQL( void )
 						|| s.includes( '@' )
 						|| s.includes( '$' ) ) {
 						if( typeof args[arg] === "object" ) {
-							console.log( "Objec with fancy names:", args[arg] );
+							//console.log( "Objec with fancy names:", args[arg] );
 							pdlParams = Module._getValueList();
 							var params =  args[arg] ;
 							var paramNames = Object.keys( params );
@@ -163,7 +162,7 @@ void InitSQL( void )
 								var value = params[valName];
 								var na;
 								var ni = valName?allocate(na=intArrayFromString(valName), 'i8', ALLOC_NORMAL):0;
-								console.log( "Argname:", valName );
+								//console.log( "Argname:", valName );
 								switch( typeof value ) {
 								default:
 									throw new Error( "Unsupported value type:" + typeof value );
@@ -215,20 +214,15 @@ void InitSQL( void )
                   pvtStmt = s;
 						for( ; arg < args.length; arg++ ) {
 							var value = args[arg];
-                     console.log( "just some aguments...", args, value );
 							switch( typeof value ) {
 							case  "string": {
 								//String::Utf8Value text( USE_ISOLATE(isolate) args[arg]->ToString( isolate->GetCurrentContext() ).ToLocalChecked() );
 								if( !(arg & 1) ) { // every odd parameter is inserted
 									si = s?allocate(sa=intArrayFromString(s), 'i8', ALLOC_NORMAL):0;
-                           console.log( "putting in a question mark..." );
 									Module._PushValue( pdlParams, 0, 0, Module.constants.JSOX_VALUE_STRING, 0, 0, 0, args[arg], args[arg].length - 1 );
-									
 									pvtStmt += '?';
 								}
 								else {
-									//si = s?allocate(sa=intArrayFromString(s), 'i8', ALLOC_NORMAL):0;
-                           console.log( "Including statemtn?", value );
 									pvtStmt += value;
 								}
 								continue;
@@ -654,13 +648,21 @@ static void PushValue( PDATALIST *pdlParams, char *name, size_t nameLen, int val
 		}
 		AddDataItem( pdlParams, &val );
 		break;
+	case JSOX_VALUE_TRUE:
+  		val.result_n = 1;
+      AddDataItem( pdlParams, &val );
+      break;
+	case JSOX_VALUE_FALSE:
+  		val.result_n = 0;
+      AddDataItem( pdlParams, &val );
+      break;
 	case JSOX_VALUE_TYPED_ARRAY:
 		val.string = (char*)sVal;
 		val.stringLen = sValLen;
 		AddDataItem( pdlParams, &val );
 		break;
 	default:
-		lprintf( "Unsupported TYPE" );
+		lprintf( "Unsupported TYPE %d", valType );
 		break;
 	}
 }
@@ -672,7 +674,7 @@ int sqlDo( struct SqlObject *sql, char *statement, size_t statementlen, PDATALIS
 		INDEX idx = 0;
 		int items;
 		struct jsox_value_container * jsval;
-		lprintf( "Okay what do we get? %p %s %d", sql, statement, statementlen );
+		//lprintf( "Okay what do we get? %p %s %d", sql, statement, statementlen );
 		if( !SQLRecordQuery_js( sql->odbc, statement, statementlen, &pdlRecord, pdlParams?pdlParams[0]:0 DBG_SRC ) ) {
 			const char *error;
 			FetchSQLError( sql->odbc, &error );
